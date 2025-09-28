@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogg</title>
+    <script src="app.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <header>
+      <h1>Min blogg</h1>
+    </header>
+
+    <div class="container">
+      <main>
+        <div class="newPost">
+          <form class="form">
+            <h2>Skapa Nytt inlägg</h2>
+
+            <div>
+              <label for="titel">Titel: </label>
+              <input type = "text" id = "titleInput">
+            </div>
+
+            <div>
+              <label for = "author">Författare: </label>
+              <input type = "text" id = "author">
+            </div>
+
+            <div>
+              <label for = "textInput">Innehåll: </label>
+              <textarea id = "textInput" rows="4" cols="50"></textarea>
+            </div>
+
+            <div>
+              <button id = "btnCreate">Skapa inlägg</button>
+            </div>
+
+          </form>
+        </div> <!--newPost-->
+
+
+        <div class="postsContainer">
+          <ul id="blogPosts">
+              <!-- <li>Hej</li> -->
+          </ul>
+        </div>
+        
+      </main>
+
+    </div> <!--container-->
+  </body>
+</html>
