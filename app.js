@@ -6,6 +6,24 @@ const textInput = document.getElementById('textInput')
 const btnCreate = document.getElementById('btnCreate')
 const blogPosts = document.getElementById('blogPosts')
 
+let postListArray = []
+
+function saveToLocalStorage(post) {
+  postListArray.push(post)
+  const data = JSON.stringify(postListArray)
+  localStorage.setItem('posts', data)
+}
+
+function loadFromLocalStorage() {
+  const posts = localStorage.getItem('posts')
+  if(posts) {
+    postListArray = JSON.parse(posts)
+    postListArray.forEach(todo => {
+      blogPost
+    })
+  }
+}
+
 //Knapp för att spara information
 btnCreate.addEventListener('click', (e) => {
   e.preventDefault(); //Gör så att sidan inte startas om
@@ -21,6 +39,8 @@ btnCreate.addEventListener('click', (e) => {
 //Skapa den nya blog posten
 function blogPost (title, author, post) {
   const newPostLi = document.createElement('li')
+  newPostLi.id = post.id
+  newPostLi.className = 'post-container'
 
   const blogInfo = document.createElement('p')
   const titleP = document.createElement('h2')
@@ -36,15 +56,18 @@ function blogPost (title, author, post) {
   newPostLi.appendChild(titleP)
   newPostLi.appendChild(blogInfo)
   newPostLi.appendChild(postP)
-  newPostLi.appendChild(btnDelete)
-
 
   const btnDelete = document.createElement('button')
   btnDelete.textContent = "Ta bort"
-  // btnDelete.addEventListener('click', (e) => {
-  //   const target = e.target
-  //   const parent = target.parentElement
-  //   const todo
-  // })
+  btnDelete.addEventListener('click', (e) => {
+    const target = e.target
+    const parent = target.parentElement
+    const postId = Number(parent.id)
+    parent.remove()
+    postListArray = postListArray.filter(post => post.id !== postId)
+    localStorage.setItem('posts', JSON.stringify(postListArray))
+  })
+
+  newPostLi.appendChild(btnDelete)
 
 }
