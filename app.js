@@ -23,6 +23,8 @@ btnCreate.addEventListener('click', (e) => {
 //Skapa den nya blog posten
 function blogPost (title, author, post) {
   const newPostLi = document.createElement('li')
+  newPostLi.id = post.id
+  newPostLi.className = 'post-container'
 
   const blogInfo = document.createElement('p')
   const titleP = document.createElement('h2')
