@@ -13,8 +13,8 @@ btnCreate.addEventListener('click', (e) => {
   blogPost(titleInput.value, author.value, textInput.value)
 
   
-  // textInput.value = ''
-  // titleInput.value = ''
+  textInput.value = ''
+  titleInput.value = ''
   // postsContainer.scrollTop = postsContainer.scrollHeight
 
 })
@@ -80,30 +80,78 @@ function blogPost (title, author, post) {
     dislikeBtn.innerHTML = `Dislike ${dislikeScore}`
   })
 
-  //Kommentarer
+
+
+  //Kommentarer --------------------------------------------------------------------------------------------------------------------------------------------
   const kommentarSection = document.createElement('div')
   newPostLi.appendChild(kommentarSection)
-
+  
+  
   let antalKommentarer = 0
-
+  
+  // Update the comment header to show the current number of comments
+  function updateAntalKommentarer() {
+    kommentarHeader.innerHTML = `Kommentarer (${antalKommentarer})`
+  }
+  
   const kommentarHeader = document.createElement('h2')
   kommentarHeader.innerHTML = `Kommentarer (${antalKommentarer})`
   kommentarSection.appendChild(kommentarHeader)
-
-
+  
+  //Alla kommentarer skapas i denna lista
+  const kommentarUl = document.createElement('ul')
+  kommentarSection.appendChild(kommentarUl)
+  
   const kommentarForm = document.createElement('div')
   kommentarSection.appendChild(kommentarForm)
 
   const kommentarUser = document.createElement('input')
-  kommentarUser.setAttribute = ('type', 'text');
-  kommentarUser.placeholder = "Ditt namn..."
+  kommentarUser.setAttribute('type', 'text');
+  kommentarUser.placeholder = "Ditt namn"
 
   kommentarForm.appendChild(kommentarUser)
 
   const kommentarInput = document.createElement('textarea')
-  kommentarInput.placeholder = "Din kommentar"
+  kommentarInput.placeholder = "Din kommentar..."
   kommentarForm.appendChild(kommentarInput)
   kommentarInput.cols = 50
   kommentarInput.rows = 4
 
+  const kommentarSubmitBtn = document.createElement('button')
+  kommentarSubmitBtn.innerHTML = "Skicka kommentar"
+  kommentarForm.appendChild(kommentarSubmitBtn)
+
+  kommentarSubmitBtn.addEventListener('click', (e) => {
+    e.preventDefault()
+
+    // Create the new comment
+    newKommentar(kommentarUser.value, kommentarInput.value)
+
+    antalKommentarer++
+    updateAntalKommentarer()
+
+    kommentarUser.value = ''
+    kommentarInput.value = ''
+  })
+
+  function newKommentar (kommentarUser, kommentarInput) {
+    const newKommentarList = document.createElement('li')
+    newKommentarList.id = 'newKommentarList'
+
+    const kommentarName = document.createElement('h3')
+    kommentarName.textContent = kommentarUser
+
+    const kommentarText = document.createElement('p')
+    kommentarText.textContent = kommentarInput
+
+    const kommentarDate = document.createElement('span')
+    const date = new Date()
+    kommentarDate.textContent = `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`
+
+    kommentarUl.appendChild(newKommentarList)
+    newKommentarList.appendChild(kommentarName)
+    newKommentarList.appendChild(kommentarText)
+    newKommentarList.appendChild(kommentarDate)
+
+  }
 }
