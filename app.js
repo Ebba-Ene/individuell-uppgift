@@ -26,8 +26,8 @@ function blogPost (title, author, post) {
   newPostLi.id = post.id
   newPostLi.className = 'post-container'
 
-  const blogInfo = document.createElement('p')
   const titleP = document.createElement('h2')
+  const blogInfo = document.createElement('p')
   const postP = document.createElement('p')
 
   const date = new Date()
@@ -41,7 +41,6 @@ function blogPost (title, author, post) {
   newPostLi.appendChild(blogInfo)
   newPostLi.appendChild(postP)
 
-
   //Skapa delete knapp
   const btnDelete = document.createElement('button')
   btnDelete.textContent = "Ta bort"
@@ -53,6 +52,8 @@ function blogPost (title, author, post) {
   })
 
   newPostLi.appendChild(btnDelete)
+
+
   //Skapa like och dislike knappar
   const likeDislikeGroup = document.createElement('div')
   likeDislikeGroup.id = "likeDislikeGroup"
@@ -80,10 +81,12 @@ function blogPost (title, author, post) {
     dislikeBtn.innerHTML = `Dislike ${dislikeScore}`
   })
 
-
-
+  const breakLine = document.createElement('hr')
+  newPostLi.appendChild(breakLine)
+  
   //Kommentarer --------------------------------------------------------------------------------------------------------------------------------------------
   const kommentarSection = document.createElement('div')
+  kommentarSection.id = "kommentarSection"
   newPostLi.appendChild(kommentarSection)
   
   
@@ -94,7 +97,7 @@ function blogPost (title, author, post) {
     kommentarHeader.innerHTML = `Kommentarer (${antalKommentarer})`
   }
   
-  const kommentarHeader = document.createElement('h2')
+  const kommentarHeader = document.createElement('h3')
   kommentarHeader.innerHTML = `Kommentarer (${antalKommentarer})`
   kommentarSection.appendChild(kommentarHeader)
   
@@ -102,8 +105,14 @@ function blogPost (title, author, post) {
   const kommentarUl = document.createElement('ul')
   kommentarSection.appendChild(kommentarUl)
   
-  const kommentarForm = document.createElement('div')
+  //Skapar formen
+  const kommentarForm = document.createElement('form')
+  kommentarForm.id = "kommentarForm"
   kommentarSection.appendChild(kommentarForm)
+
+  const kommentarFormHeader = document.createElement('h4')
+  kommentarFormHeader.innerHTML = "Lägg till kommentar"
+  kommentarForm.appendChild(kommentarFormHeader)
 
   const kommentarUser = document.createElement('input')
   kommentarUser.setAttribute('type', 'text');
@@ -121,6 +130,7 @@ function blogPost (title, author, post) {
   kommentarSubmitBtn.innerHTML = "Skicka kommentar"
   kommentarForm.appendChild(kommentarSubmitBtn)
 
+  //----------------------------------------------------------------------------------------------------------------
   kommentarSubmitBtn.addEventListener('click', (e) => {
     e.preventDefault()
 
@@ -136,15 +146,16 @@ function blogPost (title, author, post) {
 
   function newKommentar (kommentarUser, kommentarInput) {
     const newKommentarList = document.createElement('li')
-    newKommentarList.id = 'newKommentarList'
+    newKommentarList.className = 'newKommentarList'
 
-    const kommentarName = document.createElement('h3')
+    const kommentarName = document.createElement('h4')
     kommentarName.textContent = kommentarUser
 
     const kommentarText = document.createElement('p')
     kommentarText.textContent = kommentarInput
 
-    const kommentarDate = document.createElement('span')
+    const kommentarDate = document.createElement('p')
+    kommentarDate.style.color = "grey"
     const date = new Date()
     kommentarDate.textContent = `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`
 
@@ -152,6 +163,5 @@ function blogPost (title, author, post) {
     newKommentarList.appendChild(kommentarName)
     newKommentarList.appendChild(kommentarText)
     newKommentarList.appendChild(kommentarDate)
-
   }
 }
