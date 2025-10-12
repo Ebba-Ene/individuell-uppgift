@@ -159,6 +159,13 @@ function blogPost (title, author, post) {
     const date = new Date()
     kommentarDate.textContent = `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`
 
+    const kommentarTaBortBtn = document.createElement('button')
+    kommentarTaBortBtn.id = "kommentarTaBortBtn"
+    kommentarTaBortBtn.innerHTML = "Ta bort"
+
+    newKommentarList.appendChild(kommentarTaBortBtn)
+    
+
     kommentarUl.appendChild(newKommentarList)
     newKommentarList.appendChild(kommentarName)
     newKommentarList.appendChild(kommentarText)

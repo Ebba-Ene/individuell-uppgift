@@ -33,6 +33,7 @@ button:hover{
   background-color: lightcoral;
   color: white;
 
+  border: .5px solid salmon;
   transition: .3s;
 }
 
@@ -127,8 +128,12 @@ button:hover{
   flex-direction: column;
 }
 
-.post-container button{
+.post-container p {
+  margin-bottom: .5rem;
+}
 
+.post-container button{
+ /* margin-top:.5rem; */
 }
 
 
@@ -150,7 +155,10 @@ button:hover{
   margin-top: .5rem;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
+}
+
+#kommentarSection h3{
+  margin-left: .8rem;
 }
 
 #allaKommentarer{
@@ -166,6 +174,15 @@ button:hover{
   border-radius: 5px;
   padding: .5rem;
   width: 100%;
+
+  margin-left: 10%
+}
+
+#kommentarTaBortBtn{
+  /* margin-left: 93%; */
+  padding: .1rem .2rem;
+  margin-bottom: .2rem;
+
 }
 
 #kommentarForm{
@@ -179,7 +196,9 @@ button:hover{
   padding: .5rem;
   border-radius: 5px;
 
-  width: 50%;
+  margin-left: 8%;
+
+  width: 80%;
 
 }
 
@@ -220,9 +239,10 @@ button:hover{
 
   #blogPosts{
     width: 90%;
+    margin-left: -2rem;
   }
 
   #kommentarForm{
-    width: 94%;
+    width: 80%;
   }
 }
