@@ -44,7 +44,39 @@
 
         <div class="postsContainer">
           <ul id="blogPosts">
-              <!-- <li>Hej</li> -->
+              <li class = "post-container">
+                <h2>Titel</h2>
+                <p>Av User - år - månad - dag</p>
+                <p>Innehåll</p>
+                <button>Ta bort</button>
+
+                <div id="likeDislikeGroup">
+                  <button>Like (antal)</button>
+                  <button>Dislike (antal)</button>
+                </div>
+
+                <hr>
+
+                <div id="kommentarSection">
+                  <h3>Kommentar (antal)</h3>
+
+                  <ul id="allaKommentarer">
+                    <li class="newKommentarList">
+                      <h4>Användare</h4>
+                      <p>Kommentar input</p>
+                      <p style="color:rgb(121, 120, 120);">Datum</p>
+                    </li>
+                  </ul>
+
+                  <form id="kommentarForm">
+                    <h4>Lägg till kommentar</h4>
+                    <input type="text" placeholder="Ditt namn">
+                    <textarea rows="4" cols="50" placeholder="Din kommentar..."></textarea>
+                    <button>Skicka kommentar</button>
+                  </form>
+                </div>
+
+              </li>
           </ul>
         </div>
         
