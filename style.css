@@ -28,12 +28,13 @@ ul{
   list-style: none;
 }
 
+button{
+  font-weight: bold;
+}
+
 button:hover{
   cursor: pointer;
-  background-color: lightcoral;
   color: white;
-
-  border: .5px solid salmon;
   transition: .3s;
 }
 
@@ -133,7 +134,10 @@ button:hover{
 }
 
 .post-container button{
- /* margin-top:.5rem; */
+  background-color: rgb(247, 196, 196);
+  padding: .2rem .25rem;
+  width: fit-content; 
+  border: none;
 }
 
 
@@ -199,7 +203,6 @@ button:hover{
   margin-left: 8%;
 
   width: 80%;
-
 }
 
 #kommentarForm input, #kommentarForm textarea{
@@ -207,7 +210,6 @@ button:hover{
   border: 5px;
   border-radius: 5px;
   border: 1px solid rgb(212, 211, 211);
-  
 }
 
 #kommentarForm button{
