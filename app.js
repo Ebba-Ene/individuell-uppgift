@@ -1,4 +1,4 @@
-//Hämta id
+//Hämta element
 const titleInput = document.getElementById('titleInput')
 const author = document.getElementById('author')
 const textInput = document.getElementById('textInput')
@@ -12,11 +12,8 @@ btnCreate.addEventListener('click', (e) => {
   e.preventDefault(); //Gör så att sidan inte startas om
   blogPost(titleInput.value, author.value, textInput.value)
 
-  
   textInput.value = ''
   titleInput.value = ''
-  // postsContainer.scrollTop = postsContainer.scrollHeight
-
 })
 
 
@@ -47,7 +44,6 @@ function blogPost (title, author, post) {
   btnDelete.addEventListener('click', (e) => {
     const target = e.target
     const parent = target.parentElement
-    const postId = Number(parent.id)
     parent.remove()
   })
 
@@ -163,9 +159,17 @@ function blogPost (title, author, post) {
     kommentarTaBortBtn.id = "kommentarTaBortBtn"
     kommentarTaBortBtn.innerHTML = "Ta bort"
 
+    kommentarTaBortBtn.addEventListener('click', (e) => {
+      const target = e.target
+      const parent = target.parentElement
+      parent.remove()
+      
+      antalKommentarer--
+      updateAntalKommentarer()
+  })
+
     newKommentarList.appendChild(kommentarTaBortBtn)
     
-
     kommentarUl.appendChild(newKommentarList)
     newKommentarList.appendChild(kommentarName)
     newKommentarList.appendChild(kommentarText)
