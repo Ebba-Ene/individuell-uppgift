@@ -220,6 +220,13 @@ button:hover{
 }
 
 /* Responsiv design */
+@media (max-width: 1000px){
+
+  #blogPosts{
+    width: 99%;
+  }
+
+}
 
 @media (max-width: 768px){
 
@@ -233,21 +240,22 @@ button:hover{
   }
 
   .newPost{
-    width: 90%;
+    width: 100%;
+  }
+
+  .postsContainer{
+    width: 99%;
   }
 
   .form{
     width: 100%;
   }
 
-  .postsContainer{
-    width: 100%;
-  }
-
   #blogPosts{
-    width: 90%;
+    width: 100%;
     margin-left: -2rem;
   }
+
 
   #kommentarForm{
     width: 80%;
