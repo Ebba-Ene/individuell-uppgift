@@ -240,7 +240,11 @@ button:hover{
   }
 
   .newPost{
-    width: 90%;
+    width: 100%;
+  }
+
+  .postsContainer{
+    width: 99%;
   }
 
   .form{
